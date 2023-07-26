@@ -1,0 +1,74 @@
+type: custom:button-card
+name: Battery
+show_name: true
+show_icon: true
+show_state: true
+entity: sensor.i4_edrive40_remaining_range_total
+state_display: |
+  [[[
+    return states['sensor.i4_edrive40_remaining_battery_percent'].state+" "+states['sensor.i4_edrive40_remaining_battery_percent'].attributes.unit_of_measurement;
+  ]]]
+custom_fields:
+  range: |
+    [[[
+      return states['sensor.i4_edrive40_remaining_range_total'].state+" "+states['sensor.i4_edrive40_remaining_range_total'].attributes.unit_of_measurement
+    ]]]
+  progress_bar_soc: P
+  progress_bar_soc_bg: P
+entity_picture: /local/images/bmw-i4-dravit-grau.png
+show_entity_picture: true
+hold_action:
+  action: more-info
+layout: icon_name_state2nd
+styles:
+  custom_fields:
+    range:
+      - font-size: 3rem
+      - font-weight: 200
+      - padding-top: 5px
+    progress_bar_soc:
+      - width: >-
+          [[[return
+          "calc("+states['sensor.i4_edrive40_remaining_battery_percent'].state+"%"+"
+          - 3rem)"]]]
+      - position: absolute
+      - bottom: 20px
+      - box-sizing: content-box
+      - background-color: var(--label-badge-blue)
+      - color: blue
+      - font-size: 0px
+      - height: 2px
+      - margin: 0 1.5rem
+      - justify-self: start
+    progress_bar_soc_bg:
+      - position: absolute
+      - bottom: 20px
+      - box-sizing: content-box
+      - background-color: var(--label-badge-blue)
+      - color: blue
+      - opacity: 30%
+      - font-size: 0px
+      - height: 2px
+      - width: calc(100% - 3rem)
+      - margin: 0 1.5rem
+      - justify-self: start
+  name:
+    - font-size: 0.9em
+    - justify-self: start
+    - padding-left: 1.5rem
+    - margin-top: 0.5rem
+  state:
+    - font-weight: bold
+    - font-size: 1.5rem
+    - justify-self: start
+    - padding-left: 1.5rem
+  entity_picture:
+    - width: 90%
+    - transform: scaleX(-1)
+  grid:
+    - grid-template-areas: >-
+        "range range range" "i i i" "n n n" "s s s"  "progress_bar_soc
+        progress_bar_soc_bg progress_bar_soc_bg"  "l l l"
+    - grid-template-columns: 1fr
+    - grid-template-rows: 1fr
+    - gap: 10px

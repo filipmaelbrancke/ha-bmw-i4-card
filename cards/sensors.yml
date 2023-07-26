@@ -1,0 +1,73 @@
+- platform: template
+  sensors:
+    i4_edrive40_charging_time_remaining:
+      friendly_name: "Charging time remaining"
+      unique_id: "i4_edrive40_custom_charging_time_remaining"
+      device_class: duration
+      unit_of_measurement: s
+      value_template: >
+          {% if is_state('sensor.i4_edrive40_charging_end_time', 'Unknown') %}
+           {{ 0 }}
+          {% else %}
+           {% set now_timestamp = as_timestamp(now()) %}
+           {% set charging_end_time_timestamp = as_timestamp(states('sensor.i4_edrive40_charging_end_time')) %}
+           {% set charging_duration = charging_end_time_timestamp - now_timestamp | int %}
+           {{ charging_duration | int  }}
+          {% endif %}
+      icon_template: >-
+        {% if is_state('sensor.i4_edrive40_charging_end_time', 'Unknown') %}
+          mdi:clock-outline
+        {% else %}
+          mdi:clock-end
+        {% endif %}
+    i4_edrive40_charging_time_remaining_formatted:
+      friendly_name: "Charging time remaining"
+      unique_id: "i4_edrive40_custom_charging_time_remaining_formatted"
+      value_template: >
+          {% if is_state('sensor.i4_edrive40_charging_end_time', 'Unknown') %}
+           {{ '' }}
+          {% else %}
+           {{ states('sensor.i4_edrive40_charging_time_remaining') | int | timestamp_custom('%H:%M', false) }}
+          {% endif %}
+      icon_template: >-
+        {% if is_state('sensor.i4_edrive40_charging_end_time', 'Unknown') %}
+          mdi:clock-outline
+        {% else %}
+          mdi:clock-end
+        {% endif %}
+    
+    i4_edrive40_charging_time_elapsed:
+      friendly_name: "Charging time elapsed"
+      unique_id: "i4_edrive40_custom_charging_time_elapsed"
+      device_class: duration
+      unit_of_measurement: s
+      value_template: >
+          {% if is_state('binary_sensor.i4_edrive40_charging_status', 'on') %}
+           {% set now_timestamp = as_timestamp(now()) %}
+           {% set charging_start_time_timestamp = as_timestamp(states.binary_sensor.i4_edrive40_charging_status.last_changed) %}
+           {% set charging_duration = now_timestamp - charging_start_time_timestamp | int %}
+           {{ charging_duration | int  }}
+          {% else %}
+           {{ 0 }}
+          {% endif %}
+      icon_template: >-
+        {% if is_state('binary_sensor.i4_edrive40_charging_status', 'on') %}
+          mdi:clock-start
+        {% else %}
+          mdi:clock-outline
+        {% endif %}
+    i4_edrive40_charging_time_elapsed_formatted:
+      friendly_name: "Charging time elapsed"
+      unique_id: "i4_edrive40_custom_charging_time_elapsed_formatted"
+      value_template: >
+          {% if is_state('binary_sensor.i4_edrive40_charging_status', 'on') %}
+           {{ states('sensor.i4_edrive40_charging_time_elapsed') | int | timestamp_custom('%H:%M', false) }}
+          {% else %}
+           {{ '' }}
+          {% endif %}
+      icon_template: >-
+        {% if is_state('binary_sensor.i4_edrive40_charging_status', 'on') %}
+          mdi:clock-start
+        {% else %}
+          mdi:clock-outline
+        {% endif %}

@@ -1,0 +1,103 @@
+type: picture-elements
+image: /local/images/bmw-i4-sideview-white.png
+card_mod:
+  style:
+    hui-image$: |
+      img {
+        margin: auto;
+        padding: 10% 0;
+      }
+elements:
+  - type: state-icon
+    entity: device_tracker.i4_edrive40
+    state_color: false
+    style:
+      top: 9%
+      left: 16%
+  - type: state-label
+    entity: device_tracker.i4_edrive40
+    style:
+      top: 18%
+      left: 16%
+      
+  - type: state-icon
+    entity: binary_sensor.i4_edrive40_door_lock_state
+    state_color: true
+    style:
+      top: 9%
+      left: 38%
+  - type: state-label
+    entity: binary_sensor.i4_edrive40_door_lock_state
+    style:
+      top: 18%
+      left: 38%
+      
+  - type: state-icon
+    entity: binary_sensor.i4_edrive40_lids
+    style:
+      top: 9%
+      left: 62%
+  - type: state-label
+    entity: binary_sensor.i4_edrive40_lids
+    style:
+      top: 18%
+      left: 62%
+      
+  - type: state-icon
+    entity: binary_sensor.i4_edrive40_windows
+    style:
+      top: 9%
+      left: 84%
+  - type: state-label
+    entity: binary_sensor.i4_edrive40_windows
+    style:
+      top: 18%
+      left: 84%
+      
+      
+  - type: state-icon
+    entity: sensor.i4_edrive40_remaining_battery_percent
+    style:
+      top: 84%
+      left: 16%
+  - type: state-label
+    entity: sensor.i4_edrive40_remaining_battery_percent
+    style:
+      top: 93%
+      left: 16%
+      
+  - type: state-icon
+    entity: sensor.i4_edrive40_remaining_range_total
+    state_color: true
+    style:
+      top: 84%
+      left: 38%
+  - type: state-label
+    entity: sensor.i4_edrive40_remaining_range_total
+    style:
+      top: 93%
+      left: 38%
+      
+  - type: state-icon
+    entity: sensor.i4_edrive40_mileage
+    state_color: true
+    style:
+      top: 84%
+      left: 62%
+  - type: state-label
+    entity: sensor.i4_edrive40_mileage
+    style:
+      top: 93%
+      left: 62%
+      
+  - type: state-icon
+    entity: switch.i4_edrive40_climate
+    state_color: true
+    style:
+      top: 84%
+      left: 84%
+  - type: state-label
+    entity: switch.i4_edrive40_climate
+    style:
+      top: 93%
+      left: 84%
