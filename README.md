@@ -1,6 +1,6 @@
 # Home Assistant bmw i4 card
 
-The [Home Assistant BMW Connected Drive](https://www.home-assistant.io/integrations/bmw_connected_drive/) integration can be used to extract data about the car. That will give you about 30 integration entries (entities) in your Home Assistant, but it does not come with any visualization.
+The [Home Assistant BMW Connected Drive](https://www.home-assistant.io/integrations/bmw_connected_drive/) integration can be used to extract data from the car. That will give you about 30 integration entries (entities) in your Home Assistant, but it does not come with any visualization.
 
 These are some Home Assistant dashboard cards that can display the BMW i4 information.
 
@@ -17,6 +17,23 @@ No charging cable connected:
 ## minimal card
 
 ![Minimal card](cards/images/example/minimal-card.png)
+
+## Features
+
+Car information that can be visualised:
+
+- Charging session overview
+	- Plugged In | Unplugged | Charging
+	- Charging status
+	- Charging time elapsed | remaining
+- Vehicle state
+	- Remaining range
+	- Mileage
+	- Locked | Unlocked
+	- Door/Window Overview
+	- Home | Away
+	- Airconditioning
+
 
 # Installation
 
