@@ -42,7 +42,7 @@ Car information that can be visualised:
 1. Requires [Home Assistant BMW Connected Drive](https://www.home-assistant.io/integrations/bmw_connected_drive/), and some [extra Home Assistant components](#necessary-home-assistant-components) if not yet available.
 2. Add the extra sensors (see `sensors.yml`)
 3. Copy the contents of `bmw-i4-charging-card.yml` or `bmw-i4-minimal-card.yml` into a lovelace card.
-4. Modify the entity names based on your setup. 
+4. Modify the entity names based on your setup.
 
 ## Necessary Home Assistant components
 
@@ -92,15 +92,6 @@ ________________________________________________________________________
 charging-card based on: https://github.com/tmack8001/ha-rivian-card    
 minimal card based on: https://www.reddit.com/r/homeassistant/comments/wxdy9d/my_new_dashboard_for_our_evs/
 
-other: 
+other:
 
 - https://blog.sanghviharshit.com/home-assistant-dashboard-tesla/
-
-## BMW i4
-
-### Blueprints
-
-- https://www.the-blueprints.com/vectordrawings/show/22009/bmw_i4/
-- https://greatcatalog.net/en/bmw-m25140.html
-- https://greatcatalog.net/en/bmw-m25196.html
-
